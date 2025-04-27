@@ -1,0 +1,186 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 0;
+}
+
+.logo {
+    color: #ff7200 !important;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: #ff7200 !important;
+}
+
+.search-box input {
+    background: transparent;
+    border: 5px solid #ff7200;
+    color: white;
+}
+
+.search-box input:focus {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 114, 0, 0.25);
+    border-color: #ff7200;
+}
+
+.search-btn {
+    background-color: #ff7200;
+    color: white;
+    border: none;
+}
+
+.search-btn:hover {
+    background-color: #ff8c29;
+    color: white;
+}
+
+.left-content {
+    padding: 2rem 0;
+}
+
+.left-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.left-content span {
+    color: #ff7200;
+}
+
+.left-content p {
+    margin-bottom: 2rem;
+}
+
+.join-btn {
+    background-color: #ff7200;
+    color: white;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.join-btn:hover {
+    background-color: #ff8c29;
+    color: white;
+}
+
+.right-content {
+    padding: 2rem 0;
+}
+
+.login-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.login-form h2 {
+    color: #ff7200;
+    font-weight: 700;
+}
+
+.form-control, .form-select {
+    background: transparent;
+    border: 1px solid #ff7200;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 114, 0, 0.25);
+    border-color: #ff7200;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+}
+
+.form-select {
+    color: #ccc;
+}
+
+.form-select option {
+    background-color: #333;
+    color: white;
+}
+
+.login-btn {
+    background-color: #ff7200;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ff8c29;
+    color: white;
+}
+
+.form-footer a {
+    color: #ff7200;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-footer a:hover {
+    color: #ff8c29;
+    text-decoration: underline;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #ff7200;
+    color: white;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 991px) {
+    .left-content {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .right-content {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
