@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="download (2).png">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="download (2).png" alt="Weather Logo" width="120px" class="weather-logo">
+            </div>
+            <h2 class="weather-title">Weather</h2>
+            <div class="weather-input">
+                <input type="text" name="city" id="city-input" placeholder="Enter city name">
+                <button type="button" id="search-btn">
+                    <i class="fa-regular fa-search"></i> Search
+                </button>
+                <button type="button" id="voice-btn">
+                    <i class="fa-solid fa-microphone"></i> Voice
+                </button>
+                <button type="button" id="location-btn">
+                    <i class="bx bx-target-lock"></i> Current Location
+                </button>
+            </div>
+            <div class="voice-message" id="voice-message"></div>
+            <div class="header-links">
+            </div>
+        </div>
+        
+        <div class="weather-data">
+            <div class="weather-left">
+                <div id="map" style="height: 300px; border-radius: 12px; margin-top: 20px;"></div>
+                <div class="card">
+                    <div class="current-weather">
+                        <div class="details">
+                            <p>NOW</p>
+                            <h2>___&deg;C</h2>
+                            <p>_____</p>
+                        </div>
+                        <div class="weather-icon">
+                            <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Weather icon">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-footer">
+                        <p><i class="fa-light fa-calendar"></i> _____</p>
+                        <p><i class="fa-light fa-location-dot"></i> _____</p>
+                        <p><i class="fa-light fa-clock"></i> _____</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>7 Days Forecast</h2>
+                    <div class="day-forecast">
+                        <div class="forecast-item">
+                            <p class="day-name">Mon</p>
+                            <div class="icon-wrapper">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="Weather forecast icon">
+                                <span>___&deg;C</span>
+                            </div>
+                            <p class="forecast-desc">___</p>
+                        </div>
+                        <div class="forecast-item">
+                            <p class="day-name">Tue</p>
+                            <div class="icon-wrapper">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="Weather forecast icon">
+                                <span>___&deg;C</span>
+                            </div>
+                            <p class="forecast-desc">___</p>
+                        </div>
+                        <div class="forecast-item">
+                            <p class="day-name">Wed</p>
+                            <div class="icon-wrapper">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="Weather forecast icon">
+                                <span>___&deg;C</span>
+                            </div>
+                            <p class="forecast-desc">___</p>
+                        </div>
+                        <div class="forecast-item">
+                            <p class="day-name">Thu</p>
+                            <div class="icon-wrapper">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="Weather forecast icon">
+                                <span>___&deg;C</span>
+                            </div>
+                            <p class="forecast-desc">___</p>
+                        </div>
+                        <div class="forecast-item">
+                            <p class="day-name">Fri</p>
+                            <div class="icon-wrapper">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="Weather forecast icon">
+                                <span>___&deg;C</span>
+                            </div>
+                            <p class="forecast-desc">___</p>
+                        </div>
+                        <div class="forecast-item">
+                            <p class="day-name">Sat</p>
+                            <div class="icon-wrapper">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="Weather forecast icon">
+                                <span>___&deg;C</span>
+                            </div>
+                            <p class="forecast-desc">___</p>
+                        </div>
+                        <div class="forecast-item">
+                            <p class="day-name">Sun</p>
+                            <div class="icon-wrapper">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="Weather forecast icon">
+                                <span>___&deg;C</span>
+                            </div>
+                            <p class="forecast-desc">___</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="weather-right">
+                <h2>Today's Highlights</h2>
+                <div class="highlights">
+                    <div class="card">
+                        <div class="card-head">
+                            <p>Air Quality Index</p>
+                            <p class="air-index aqi-5">Good</p>
+                        </div>
+                        <div class="air-indices">
+                            <i class="fa-regular fa-wind fa-3x"></i>
+                            <div class="item">
+                                <p>PM2.5</p>
+                                <h2>___</h2>
+                            </div>
+                            <div class="item">
+                                <p>PM10</p>
+                                <h2>___</h2>
+                            </div>
+                            <div class="item">
+                                <p>SO2</p>
+                                <h2>___</h2>
+                            </div>
+                            <div class="item">
+                                <p>CO</p>
+                                <h2>___</h2>
+                            </div>
+                            <div class="item">
+                                <p>NO</p>
+                                <h2>___</h2>
+                            </div>
+                            <div class="item">
+                                <p>NO2</p>
+                                <h2>___</h2>
+                            </div>
+                            <div class="item">
+                                <p>NH3</p>
+                                <h2>___</h2>
+                            </div>
+                            <div class="item">
+                                <p>O3</p>
+                                <h2>___</h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-head">
+                            <p>Sunrise & Sunset</p>
+                        </div>
+                        <div class="sunrise-sunset">
+                            <div class="item">
+                                <div class="icon">
+                                    <i class="fa-light fa-sunrise fa-4x"></i>
+                                </div>
+                                <div>
+                                    <p>Sunrise</p>
+                                    <h2>___</h2>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                    <i class="fa-light fa-sunset fa-4x"></i>
+                                </div>
+                                <div>
+                                    <p>Sunset</p>
+                                    <h2>___</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-head">
+                            <p>Humidity</p>
+                        </div>
+                        <div class="card-item">
+                            <i class="fa-light fa-droplet fa-2x"></i>
+                            <h2 id="humidity-val">___%</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-head">
+                            <p>Pressure</p>
+                        </div>
+                        <div class="card-item">
+                            <i class="fa-light fa-compass fa-2x"></i>
+                            <h2 id="pressure-val">___hpa</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-head">
+                            <p>Visibility</p>
+                        </div>
+                        <div class="card-item">
+                            <i class="fa-light fa-eye fa-2x"></i>
+                            <h2 id="visibility-val">___km</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-head">
+                            <p>Wind Speed</p>
+                        </div>
+                        <div class="card-item">
+                            <i class="fa-light fa-location-arrow fa-2x"></i>
+                            <h2 id="wind-speed-val">___m/s</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-head">
+                            <p>Feels Like</p>
+                        </div>
+                        <div class="card-item">
+                            <i class="fa-light fa-temperature-list fa-2x"></i>
+                            <h2 id="feels-val">___&deg;C</h2>
+                        </div>
+                    </div>
+                </div>
+              
+
+                <h2>Today at</h2>
+                <div class="hourly-forecast">
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                        <p>___&deg;C</p>
+                    </div>
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                         <p>___&deg;C</p>
+                    </div>
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                        <p>___&deg;C</p>
+                    </div>
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                        <p>___&deg;C</p>
+                    </div>
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                        <p>___&deg;C</p>
+                    </div>
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                        <p>___&deg;C</p>
+                    </div>
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                        <p>___&deg;C</p>
+                    </div>
+                    <div class="card">
+                        <p>9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon">
+                        <p>___&deg;C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- About Us Card -->
+        <div id="aboutUsCard" class="about-us-card">
+            <div class="about-us-icon">
+                <i class="fa-light fa-users"></i>
+            </div>
+            <div class="about-us-card-text">
+                <h3>About Us</h3>
+                <p>Learn more about the team behind this weather application</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- About Us Modal -->
+    <div id="aboutUsContent" class="about-us-modal">
+        <div class="about-us-modal-content">
+            <span class="close-button">&times;</span>
+            <h2>About Us</h2>
+            <div class="about-us-text">
+                <p>This weather application is the result of a collaborative effort between <strong>Nji Evarus Njichuki</strong> and <strong>Nyobe Christian</strong>, software engineering 1B students at the University Institute of the Gulf of Guinea, and our dedicated instructor, <strong>Mr. Nsankong Andre</strong>.</p>
+                <p>Each of us brought our passion, creativity, and commitment to the table. Under the expert guidance of Mr. Nsankong Andre, we combined our skills to build a modern, responsive, and user-friendly weather application.</p>
+                <p>We are deeply grateful to our instructor for his mentorship, encouragement, and valuable insights throughout this project. His support was a driving force that helped us stay focused and achieve our goal.</p>
+                <p>Together, as students and mentor, we joined hands to bring this project to life — a reflection of teamwork, learning, and innovation.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
